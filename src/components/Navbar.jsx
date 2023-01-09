@@ -90,11 +90,11 @@ export default function Navbar() {
                             <div className="flex flex-col justify-center content-center gap-4 pt-2">
                                 <div className="flex flex-col items-center gap-6">
                                     <Link to="/" className="text-base font-medium text-gray-900 hover:text-gray-700">
-                                        Pricing
+                                        Leaderboard
                                     </Link>
 
                                     <Link to="/" className="text-base font-medium text-gray-900 hover:text-gray-700">
-                                        Docs
+                                        About
                                     </Link>
                                 </div>
                                 <div>
