@@ -15,6 +15,7 @@ import {
 function Leaderboard() {
     const [ranklist, setRanklist] = useState([]);
     const [search, setSearch] = useState([]);
+    // console.log(search);
     const participantsCollectionRef = collection(db, "leaderboard");
     //for getting ranklist
     useEffect(() => {
@@ -62,7 +63,7 @@ function Leaderboard() {
                                 </thead>
 
                                 <tbody>
-                                    {sortedData.map((data) => (<>
+                                    {sortedData.filter((user)=>user.Name.toLowerCase().includes(search)).map((data) => (<>
                                         <UserCard key={data.Email} data={data} /></>
                                     ))}
                                 </tbody>

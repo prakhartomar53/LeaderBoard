@@ -1,24 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { Popover, Transition, Dialog } from '@headlessui/react'
 import {
     Bars3Icon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { BrowserRouter as Router, Routes, Route, Link, BrowserRouter } from 'react-router-dom'
 import logo from './gdsc-logo.png'
+import Login from './Login'
 
 
 
 
 export default function Navbar() {
+    const [openloginmodal, setOpenLoginModal] = useState(false);
+
     return (
-        <Router>
             <Popover className="relative bg-white">
                 <div className="mx-auto max-w-7xl px-6 items-center ">
                     <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
                         <div className="flex items-center justify-start  lg:w-0 lg:flex-1">
-                        
+
                             <Link to="/">
                                 <img
                                     className="h-8 w-auto sm:h-10"
@@ -45,17 +47,23 @@ export default function Navbar() {
                         </Popover.Group>
 
                         <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-                            <Link
-                                to="/"
+                            <button
+
+                                onClick={() => setOpenLoginModal(true)}
                                 className="ml-8 inline-flex gap-2 items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                             ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                          </svg>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                </svg>
                                 Admin
 
-                            </Link>
+                            </button>
+                            {/* <Modal open={openloginmodal} onClose={() => setOpenLoginModal(false)} center>
+                                    Hi there!
+                                
+                            </Modal> */}
                         </div>
                     </div>
+
                 </div>
 
                 <Transition
@@ -98,20 +106,21 @@ export default function Navbar() {
                                     </Link>
                                 </div>
                                 <div>
-                                    <Link
-                                        to="/"
+                                    <button
+                                        onClick={()=>setOpenLoginModal(true)}
                                         className="flex flex-row gap-2 w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                                     > <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                  </svg>Admin
-                                    </Link>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                        </svg>Admin
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </Popover.Panel>
                 </Transition>
-            </Popover>
 
-        </Router>
+            <Login openloginmodal={openloginmodal} setOpenLoginModal={setOpenLoginModal}/>
+
+            </Popover>
     )
 }
