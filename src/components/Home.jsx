@@ -1,5 +1,5 @@
 import React from "react";
-import About from "./About";
+import Footer from "./Footer";
 import Leaderboard from "./Leaderboard";
 import Navbar from "./Navbar";
 
@@ -8,7 +8,7 @@ function Home() {
     <>
       <Navbar />
       <Leaderboard />
-      <About />
+      <Footer/>
     </>
   );
 }
