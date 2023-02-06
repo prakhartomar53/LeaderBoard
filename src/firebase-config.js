@@ -4,7 +4,7 @@ import {getAuth} from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBMXZv-2GfMSIoh0S7kCkIM8XY3gMeMPHk",
-  authDomain: "leaderboard-b39a2.firebaseapp.com",
+  authDomain:"leaderboard-b39a2.firebaseapp.com",
   projectId: "leaderboard-b39a2",
   storageBucket: "leaderboard-b39a2.appspot.com",
   messagingSenderId: "199333827795",
